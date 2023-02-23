@@ -15,6 +15,6 @@ export class Book {
   @Column()
   price: number;
 
-  // @ManyToOne(() => Category, (category) => category.id)
-  // category: Category;
+  @ManyToOne(() => Category, (category) => category.book)
+  category: Category;
 }
