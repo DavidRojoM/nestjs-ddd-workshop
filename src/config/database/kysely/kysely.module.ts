@@ -1,4 +1,4 @@
-import { DynamicModule, Module } from '@nestjs/common';
+import { DynamicModule } from '@nestjs/common';
 import { KyselyDatabaseConnection } from './kysely-database.connection';
 import { CamelCasePlugin, Kysely, MysqlDialect } from 'kysely';
 import { createPool } from 'mysql2';
