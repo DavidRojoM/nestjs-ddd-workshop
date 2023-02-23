@@ -1,14 +1,14 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { Book } from './book.entity';
+import { BookEntity } from './book.entity';
 
 @Entity()
-export class Category {
+export class CategoryEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
   name: string;
 
-  @OneToMany(() => Book, (book) => book.category)
-  book: Book;
+  @OneToMany(() => BookEntity, (book) => book.category)
+  book: BookEntity;
 }

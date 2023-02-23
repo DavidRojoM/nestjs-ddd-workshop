@@ -1,4 +1,4 @@
-import { Category } from '../typeorm/entities/category.entity';
+import { Category } from './interfaces';
 import { Book } from './interfaces/book.db-interface';
 
 export interface DbTables {
