@@ -5,6 +5,7 @@ import { environment } from '@workshop/environment/environment';
 import { KyselyGetBooksRepository } from './infra/repositories/kysely-get-books.repository';
 import { TypeOrmGetBooksRepository } from './infra/repositories/typeorm-get-books.repository';
 import { GetBooksUseCase } from './application/use-cases/get-books.use-case';
+import { GetBooksQueryHandler } from './infra/query-handlers.ts/get-books.query-handler';
 
 @Module({
   controllers: [GetBooksController],
@@ -17,6 +18,7 @@ import { GetBooksUseCase } from './application/use-cases/get-books.use-case';
           ? KyselyGetBooksRepository
           : TypeOrmGetBooksRepository,
     },
+    GetBooksQueryHandler,
   ],
 })
 export class GetBooksModule {}

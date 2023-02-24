@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { UseCase } from '@workshop/building-blocks';
-
-import { GetBooksRepository } from '../../domain/repositories/get-books.repository';
+import { QueryBus, UseCase } from '@workshop/building-blocks';
+import { GetBooksQuery } from '../../domain/queries/get-books.query';
 
 type Output = {
   name: string;
@@ -11,21 +10,12 @@ type Output = {
 
 @Injectable()
 export class GetBooksUseCase extends UseCase<never, Output> {
-  constructor(private readonly repository: GetBooksRepository) {
+  constructor(private readonly queryBus: QueryBus) {
     super();
   }
 
+  // Something weird here?
   async handle(): Promise<Output> {
-    const books = await this.repository.find();
-
-    return books.map((book) => {
-      const primitives = book.toPrimitives();
-
-      return {
-        name: primitives.name,
-        extId: primitives.extId,
-        price: primitives.price,
-      };
-    });
+    return this.queryBus.execute<Output>(new GetBooksQuery());
   }
 }
