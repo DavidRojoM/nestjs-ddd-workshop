@@ -27,12 +27,12 @@ CREATE TABLE `book` (
   `name` varchar(100) NOT NULL,
   `ext_id` varchar(100) NOT NULL,
   `price` int(10) unsigned NOT NULL,
-  `category` bigint(20) NOT NULL,
+  `category_id` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `book_UN` (`ext_id`),
-  KEY `book_FK` (`category`),
-  CONSTRAINT `book_FK` FOREIGN KEY (`category`) REFERENCES `category` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+  KEY `book_FK` (`category_id`),
+  CONSTRAINT `book_FK` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +43,19 @@ LOCK TABLES `book` WRITE;
 /*!40000 ALTER TABLE `book` DISABLE KEYS */;
 INSERT INTO `book` VALUES
 (1,'The Three Musketeers','3_musketeers',3000,1),
-(2,'Treasure Island','treasure_island',2500,1);
+(2,'Treasure Island','treasure_island',2500,1),
+(3,'The Lord Of The Rings','lots_1',2700,2),
+(4,'Harry Potter 1','hp_1',2200,2),
+(5,'Harry Potter 2','hp_2',2200,2),
+(6,'Harry Potter 3','hp_3',2000,2),
+(7,'Harry Potter 4','hp_4',2100,2),
+(8,'Harry Potter 5','hp_5',2600,2),
+(9,'Harry Potter 6','hp_6',2200,2),
+(10,'Harry Potter 7','hp_7',3400,2),
+(11,'Salem’s Lot','salem_lot',3000,3),
+(12,'The Blazing World','t_blazworld',3400,4),
+(13,'Other Woman','otr_wmn',1800,5),
+(14,'Exiles','tt_exiles',3600,4);
 /*!40000 ALTER TABLE `book` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,4 +102,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-23 22:22:11
+-- Dump completed on 2023-02-24  1:37:08
