@@ -7,7 +7,7 @@ config();
 export const environment: Environment = {
   APP_PORT: 3000,
   DATABASE: {
-    kind: 'typeorm',
+    kind: 'kysely',
     name: 'bookshop',
     host: 'localhost',
     port: 3306,
