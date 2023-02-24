@@ -1,7 +1,7 @@
-import { Category } from './interfaces';
-import { Book } from './interfaces/book.db-interface';
+import { CategoryDb } from './interfaces';
+import { BookDb } from './interfaces/book.db-interface';
 
 export interface DbTables {
-  book: Book;
-  category: Category;
+  book: BookDb;
+  category: CategoryDb;
 }
