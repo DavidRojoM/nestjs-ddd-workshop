@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { environment } from '@workshop/environment/environment';
 import { CqrsWrapperModule, DatabaseModule, entities } from '@workshop/config';
 import { assertUnreachable } from '@workshop/shared/utils';
+import { FeaturesModule } from './features/features.module';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import { assertUnreachable } from '@workshop/shared/utils';
           }
         : assertUnreachable(environment.DATABASE.kind),
     ),
+    FeaturesModule,
   ],
 })
 export class AppModule {}
