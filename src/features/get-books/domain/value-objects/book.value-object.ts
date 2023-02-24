@@ -1,17 +1,16 @@
 import { ValueObject, invariant } from '@workshop/building-blocks';
 import { NaturalNumber } from '@workshop/shared/domain/value-objects/natural-number.value-object';
 import { NonEmptyString } from '@workshop/shared/domain/value-objects/non-empty-string.value-object';
-import { Nullish } from '@workshop/shared/types';
 
 type Props = {
   name: NonEmptyString;
-  extId?: Nullish<NonEmptyString>;
+  extId: NonEmptyString;
   price: NaturalNumber;
 };
 
 type FromPrimitives = {
   name: string;
-  extId?: Nullish<string>;
+  extId: string;
   price: number;
 };
 
@@ -25,8 +24,7 @@ export class Book extends ValueObject<Props> {
     );
     invariant(
       'extId must be a NonEmptyString',
-      typeof props.extId === 'undefined' ||
-        props.extId instanceof NonEmptyString,
+      props.extId instanceof NonEmptyString,
     );
     invariant(
       'price must be a NaturalNumber',
