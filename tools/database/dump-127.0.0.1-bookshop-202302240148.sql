@@ -90,6 +90,34 @@ INSERT INTO `category` VALUES
 UNLOCK TABLES;
 
 --
+-- Table structure for table `exchange_rates`
+--
+
+DROP TABLE IF EXISTS `exchange_rates`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `exchange_rates` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `from` varchar(10) NOT NULL,
+  `to` varchar(10) NOT NULL,
+  `rate` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `exchange_rates`
+--
+
+LOCK TABLES `exchange_rates` WRITE;
+/*!40000 ALTER TABLE `exchange_rates` DISABLE KEYS */;
+INSERT INTO `exchange_rates` VALUES
+(1,'EUR','USD','1.06'),
+(2,'USD','EUR','0.94');
+/*!40000 ALTER TABLE `exchange_rates` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Dumping routines for database 'bookshop'
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -102,4 +130,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-24  1:37:08
+-- Dump completed on 2023-02-24  1:48:33
